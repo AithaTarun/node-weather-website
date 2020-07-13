@@ -1,0 +1,57 @@
+<!--
+Now this handlebars file is nothing more than a HTML with a couple of little features for
+injecting dynamic values.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Here this is a relative web server path -->
+    <link rel="icon" href="/images/cloud.png">
+
+</head>
+<body>
+<!--
+<h1>
+    &lt;!&ndash;
+    Here handlebars is used to provide dynamic content, here we provide title in this h1 tag with
+    node dynamically.
+
+    With below syntax we inject content from node.
+    &ndash;&gt;
+    {{title}}
+</h1>
+--><!-- Commented after introducing header partial -->
+
+<div class="main-content">
+    {{>header}}
+
+    <p>Use this site to get your weather</p>
+
+    <form action="">
+        <label for="address">Enter address : </label>
+        <input type="text" id="address" placeholder="Address">
+
+        <button>Fetch weather</button>
+    </form>
+
+    <p id="paraOne">
+
+    </p> <!-- If any error then this para contains error, and if not this contains location -->
+    <p id="paraTwo">
+
+    </p> <!-- If any error then this para will be empty, and if not this contains forecast -->
+</div>
+
+{{>footer}}
+
+<script src="./js/app.js"></script>
+<!--
+The code which gets inside of the above script is related to fetching the forecast.
+-->
+
+</body>
+
+</html>
