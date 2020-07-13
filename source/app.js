@@ -441,4 +441,16 @@ are ready to be committed.
 Like 'git add source/' ... .
 
 Also with command 'git add .' used to add all files in Untracked files to Staged Changes.
+
+Now we could use 'git status', we see that all files that we choose to commit will be added and they
+are ready for commit (no untracked section).
+
+Now with command 'git commit' used to create a new commit, and we have to provide a message with each commit
+describing what exactly changed. Like : for initial commit 'git commit -m "Init commit"'.
+
+Now colors in the IDE will be changed and it comes whn we perform changes.
+
+Again we perform from 'git add .' to 'git commit' to create new commits.
+
+And we commit with : git commit -m {message of the new changes} : git commit -m "Added new comments".
  */
