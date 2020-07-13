@@ -453,4 +453,8 @@ Now colors in the IDE will be changed and it comes whn we perform changes.
 Again we perform from 'git add .' to 'git commit' to create new commits.
 
 And we commit with : git commit -m {message of the new changes} : git commit -m "Added new comments".
+And we get this :
+[master 07011e2] Added new comments
+ 1 file changed, 12 insertions(+)
+
  */
