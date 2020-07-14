@@ -554,5 +554,7 @@ With command "git remote" to to view all our remotes.
 And with command : "git push heroku master".
 This will ush our latest commits up to the heroku GIT remote. When heroku see that new commits
 have been pushed it's going to deploy our application again.
+
+Here our app is deployed to production environment : " https://node-weather-website-heroku.herokuapp.com/"
  */
 
