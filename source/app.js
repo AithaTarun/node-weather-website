@@ -515,5 +515,9 @@ Now we could run that second command (CMD): "git push -u origin master"
 Which take our commits and push them to the server repository which we have set it in by
 the one of the command of two that is "git remote ..." .
 
+So from here if we change code or add new files we just run (CMD)
+1) git add .
+2) git commit -m "Our change message"
+3) git push -u origin master
  */
 
