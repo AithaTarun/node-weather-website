@@ -50,7 +50,12 @@ weatherForm.addEventListener('submit',
 
         fetch
         (
-            `http://localhost:3000/weather?address=${location}`
+            //`http://localhost:3000/weather?address=${location}` // Commented after using heroku
+            `/weather?address=${location}`
+            /*
+            Removing http:// make sure to use local host if we are running on local host or to use
+            the heroku app.
+             */
         ).then
         (
             (response)=>

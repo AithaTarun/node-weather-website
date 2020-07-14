@@ -367,14 +367,14 @@ expressApplication.get
 );
 
 
-expressApplication.listen
+/*expressApplication.listen
 (
     3000,
     ()=>
     {
         console.log("Server started on port 3000");
     }
-);
+);*/ // Changed to below after deploying to heroku.
 /*
 This starts up a server and takes a port parameter.
 And other argument is listen method which is a callback function which just runs when the
@@ -395,6 +395,15 @@ We can stop it with : CTRL+C .
 URL : localhost:3000/
 Here we don't have domains because here we run on the local machines.
  */
+const port = process.env.PORT || 3000; // Port provided by heroku in environment variables. Another condition due to that environment variable port is only done by heroku so if using it ourselves.
+expressApplication.listen
+(
+    port,
+    ()=>
+    {
+        console.log("Server started on port",port);
+    }
+);
 
 /*
 Handlebars partials : As the name suggests allows us to create a little template which is part of a
@@ -519,5 +528,31 @@ So from here if we change code or add new files we just run (CMD)
 1) git add .
 2) git commit -m "Our change message"
 3) git push -u origin master
+ */
+
+/*
+Now here we see how to push our code to heroku and that will allow us to actually deploy our
+NodeJS applications to production so everyone with the URL can view and use the website.
+
+1)First we set out SSH public key file with heroku with command : heroku keys:add
+2)And then we create our heroku application with (from root of the project) : heroku create {project name}
+  here we given project name = node-weather-website-heroku
+  This will give two URLs back in which first one is URL to view our application.
+  And second is the URL to the GIT repository where we should be pushing the code we want to deploy.
+3) Now for heroku to start up our application we have to tell it which file to run, That is achieved
+  by specifying it in the script (in package.json). Their in scripts object we remove key-value
+  pair of test and add ' "start" : "node source/app.js" ', which tells heroku how to start
+  our app. Also with this in CMD with command "npm run start" will start our application.
+4) Now we need to change the listening port in the script which is specified by expressApplication.listen,
+  Because while heroku is deploying it will provide the port automatically, now that is not
+  a static value, this is a value that changes over time and it's provided to our application
+  via environment variable, and environment variable is just a key-value pair set at OS level.
+  In this case heroku sets one for the port where the value is the port number to use.
+
+With command "git remote" to to view all our remotes.
+
+And with command : "git push heroku master".
+This will ush our latest commits up to the heroku GIT remote. When heroku see that new commits
+have been pushed it's going to deploy our application again.
  */
 
