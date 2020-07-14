@@ -558,3 +558,23 @@ have been pushed it's going to deploy our application again.
 Here our app is deployed to production environment : " https://node-weather-website-heroku.herokuapp.com/"
  */
 
+/*
+We can also add a second development script in package.json, which will run nodemon command.
+Means we no need to use entire nodemon to run the application.
+That script is "dev" : "nodemon source/app.js -e js,html,css,hbs".
+By that it will be easy to startup the development server.
+Now we can just run "npm run dev" instead of "nodemon source/app.js -e js,html,css,hbs" .
+
+Here this dev scripts works because we have nodemon installed as a global module.
+So, that is globally installed and it might not get installed when these project file are provided
+to other because "npm install" node_modules which are only local. So, we have to uninstall
+the nodemon globally by command : npm uninstall -g nodemon . And install that locally
+with command : npm install nodemon --save-dev.
+Here save-dev is used to lists it as a dev dependencies i our project.
+That is added in package.json under devDependencies. Dev dependencies are dependencies
+we only need on our local machine while we are developing, these dependencies are not installed
+in our production environment so it saves some time.
+
+Also replace intellij run edit configuration from : C:\Users\aitha\AppData\Roaming\npm\node_modules\nodemon\bin\nodemon.js -e js,hbs,css,html in Node parameters
+to "npm run dev" in Application parameters.
+ */
