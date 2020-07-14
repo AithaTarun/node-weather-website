@@ -277,7 +277,7 @@ expressApplication.get
                                 response.send
                                 (
                                     {
-                                        forecast : todayForecast+"."+currentTemperature,
+                                        forecast : todayForecast+".\n"+currentTemperature,
                                         location,
                                         address : request.query.address
                                     }

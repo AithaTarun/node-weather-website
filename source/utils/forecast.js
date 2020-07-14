@@ -28,10 +28,15 @@ const forecast = (longitude,latitude,fetchWeather) =>
         else
         {
             const currentData = body.current;
-            const currentTemperature = "It is currently "+currentData.temp+" °C out";
+            const currentTemperature =
+                "It is currently "+currentData.temp+" °C out, feels like "
+                +currentData.feels_like+"°C, "
+                +"with humidity "+currentData.humidity+ " grams per cubic meter";
 
-            const dailyData = body.daily;
-            const todayForecast = "Today weather is "+dailyData[0].weather[0].description;
+            const dailyData = body.daily[0];
+            const todayForecast =
+                "Today weather is "+dailyData.weather[0].description
+                +" with minimum and maximum temperatures of "+dailyData.temp.min+" and "+dailyData.temp.max+" °C";
 
             fetchWeather(undefined,
                 {
