@@ -457,4 +457,63 @@ And we get this :
 [master 07011e2] Added new comments
  1 file changed, 12 insertions(+)
 
+Now we should transfer our project coe between our machine and the other third party services
+server in a secure way. For that we use SSH, secure shell which gives us a means for securely
+communicating with another machine.
+Here we use SSH key pair which is a set of two files which will be using to facilitate the
+secure communication.
+
+(GIT bash commands)
+Command "ls -a -l ~/.ssh" will list the directories of a certain directory.
+-a flag is for showing hidden files.
+-l flag is for listing items top to bottom.
+~ to path to print the contents.
+
+If SSH key are not found then we use command " ssh-keygen -t rsa -b 4096 -C "aitha.tarun@gmail.com" " which allows us to generate this
+SSH key pair.
+Argument -t is type.
+RSA protocol is used here.
+-b for number of bits.
+-C is for comment for the key.
+
+By above command we will generate two files "id_rsa", "id_rsa.pub", where first file is a
+secret file which we are going to keep on our machine. And other is a public file which we
+will share with both GITHUB and heroku so it can secure the communication between our machine
+and their server.
+
+And with command "eval "$(ssh-agent -s)" it will start up SSH agent
+
+And with command "ssh-add" we register the file.
+
+Now which SSH are setup we create a new repository in GITHUB and send local machine repository
+to the server. Here created repository : "node-weather-website".
+
+For sending to server we use two commands (CMD) :
+git remote add origin https://github.com/AithaTarun/node-weather-website.git .
+Here remote is to manipulate our remotes, a remote is nothing more than a version of our project
+hosted somewhere else.
+Here add to add remote.
+Also origin is the name of the remote and by default we should have the same name for first remote.
+ThenURL contains two pieces of information. Username and repository name.
+And this command is used to set up the channel of communication.
+
+And with command (CMD): git push -u origin master
+Here push allows us to push our commits up to a given remote here origin.
+And master is the default name for branch.
+-=And -u flag allows us to set the upstream.
+Means one we use this command for the first time then from the next time we could use
+"git push" to push commits to GITHUB.
+
+And also we need to provide our public key file to GITHUB.
+And also with command "cat ~/.ssh/id_rsa.pub" in bash to get our key.
+
+Here our key name is set to : AithaPredatorSSHKey
+
+To test our connection we run command (Bash) : "ssh -T git@github.com"  and type yes, this is done only once.
+
+Now we could run that second command (CMD): "git push -u origin master"
+Which take our commits and push them to the server repository which we have set it in by
+the one of the command of two that is "git remote ..." .
+
  */
+
